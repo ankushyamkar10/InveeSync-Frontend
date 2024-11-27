@@ -56,7 +56,8 @@ const ErrorHandlerModal = ({ onClose }) => {
                 </label>
                 <input
                   type="text"
-                  className="input input-bordered w-full"
+                                className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
+
                   placeholder="Enter Supplier Item Name"
                 />
               </div>
@@ -66,7 +67,8 @@ const ErrorHandlerModal = ({ onClose }) => {
                 </label>
                 <input
                   type="text"
-                  className="input input-bordered w-full"
+                                className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
+
                   placeholder="Enter Process Description"
                 />
               </div>
@@ -76,7 +78,8 @@ const ErrorHandlerModal = ({ onClose }) => {
                 </label>
                 <input
                   type="text"
-                  className="input input-bordered w-full"
+                                className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
+
                   placeholder="Enter Quality Check"
                 />
               </div>
@@ -86,7 +89,8 @@ const ErrorHandlerModal = ({ onClose }) => {
                 </label>
                 <input
                   type="text"
-                  className="input input-bordered w-full"
+                                className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
+
                   placeholder="Enter Conversion Ratio"
                 />
               </div>

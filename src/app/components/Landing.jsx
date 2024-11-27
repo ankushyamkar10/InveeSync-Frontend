@@ -37,7 +37,7 @@ const Landing = ({ activeItem: activeTab, setActiveItem: setActiveTab }) => {
 
       <div className="bg-white shadow-sm">
         <div className="container mx-auto px-4 pt-4 pb-5">
-          <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+          <h1 className="text-2xl pt-1 font-bold text-gray-900 flex items-center gap-2">
             <FiSettings className="text-primary" />
             Data Onboarding
           </h1>
@@ -47,7 +47,7 @@ const Landing = ({ activeItem: activeTab, setActiveItem: setActiveTab }) => {
       <div className="container mx-auto px-4 py-6 md:flex-1 flex flex-col">
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
-          <div className="stats bg-white shadow">
+          <div className="stats bg-blue-50 shadow">
             <div className="stat">
               <div className="stat-figure text-primary">
                 <FiTrendingUp size={24} />
@@ -60,7 +60,7 @@ const Landing = ({ activeItem: activeTab, setActiveItem: setActiveTab }) => {
             </div>
           </div>
 
-          <div className="stats bg-white shadow">
+          <div className="stats bg-green-50 shadow">
             <div className="stat">
               <div className="stat-figure text-success">
                 <FiCheckSquare size={24} />
@@ -71,13 +71,13 @@ const Landing = ({ activeItem: activeTab, setActiveItem: setActiveTab }) => {
             </div>
           </div>
 
-          <div className="stats bg-white shadow">
+          <div className="stats bg-red-50 shadow">
             <div className="stat">
-              <div className="stat-figure text-warning">
+              <div className="stat-figure text-error">
                 <FiAlertCircle size={24} />
               </div>
               <div className="stat-title text-gray-900">Pending BOMs</div>
-              <div className="stat-value text-warning">7</div>
+              <div className="stat-value text-error">7</div>
               <div className="stat-desc text-gray-900">Requires attention</div>
             </div>
           </div>

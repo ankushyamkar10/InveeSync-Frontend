@@ -27,7 +27,7 @@ const PendingSetup = () => {
   return (
     <div className="min-w-[20%] border-l border-gray-200 bg-white p-6">
 
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6 ">
         <div className="flex items-center gap-2">
           <FiTool className="text-warning" />
           <h2 className="text-lg font-bold text-gray-900">Pending Setup</h2>
@@ -77,7 +77,7 @@ const PendingSetup = () => {
             className="btn btn-ghost btn-sm w-full text-gray-900"
             onClick={openModal}
           >
-            View All Pending Items
+            Check Error Modal
           </button>
         </div>
       )}
