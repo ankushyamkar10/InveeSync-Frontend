@@ -293,7 +293,7 @@ const Processes = () => {
             <tbody>
               {processData.map((process) => (
                 <tr key={process.id} className="text-center hover:bg-gray-100">
-                  <td className="px-4 py-3 text-center">
+                  <td className="px-4 py-3 text-left">
                     {editingRow === process.id ? (
                       <input
                         type="text"

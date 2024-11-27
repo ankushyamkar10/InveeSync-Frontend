@@ -214,11 +214,11 @@ const ProcessSteps = () => {
             <table className="table w-full text-gray-900 border border-gray-200">
               <thead>
                 <tr className="text-gray-900">
-                  <th>Item Name</th>
-                  <th>Process Name</th>
-                  <th>Process Type</th>
-                  <th>Sequence</th>
-                  <th>Conversion Ratio</th>
+                  <th className="px-4 py-3 text-left">Item Name</th>
+                  <th className="px-4 py-3 text-center">Process Name</th>
+                  <th className="px-4 py-3 text-center">Process Type</th>
+                  <th className="px-4 py-3 text-center">Sequence</th>
+                  <th className="px-4 py-3 text-center">Conversion Ratio</th>
                 </tr>
               </thead>
               <tbody>
@@ -246,11 +246,11 @@ const ProcessSteps = () => {
 
                     return (
                       <tr className="text-gray-900" key={index}>
-                        <td>{itemName}</td>
-                        <td>{processName}</td>
-                        <td>{processType}</td>
-                        <td>{processStep.sequence}</td>
-                        <td>{processStep.conversion_ratio}</td>
+                        <td className="px-4 py-3 text-left">{itemName}</td>
+                        <td className="px-4 py-3 text-center">{processName}</td>
+                        <td className="px-4 py-3 text-center">{processType}</td>
+                        <td className="px-4 py-3 text-center">{processStep.sequence}</td>
+                        <td className="px-4 py-3 text-center">{processStep.conversion_ratio}</td>
                       </tr>
                     );
                   })

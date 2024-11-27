@@ -197,7 +197,7 @@ const BillsOfMaterials = () => {
               <tr key={component.id} className="border-b hover:bg-gray-100">
                 {editingId === component.id ? (
                   <>
-                    <td className="px-4 py-3">{component.item_id}</td>
+                    <td className="px-4 py-3 text-left">{component.item_id}</td>
                     <td className="px-4 py-3 text-center">
                       {component.component_id}
                     </td>
