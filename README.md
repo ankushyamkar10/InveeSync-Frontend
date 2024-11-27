@@ -4,7 +4,7 @@ This project is a ERP system designed using **Next.js** and **Tailwind CSS**. It
 
 ## Deployed Application
 
-The application is deployed and accessible at: [https://inveesync-erp-module.vercel.app/](https://inveesync-erp-module.vercel.app/)
+The application is deployed and accessible at: [https://invee-sync-frontend.vercel.app/](https://invee-sync-frontend.vercel.app/)
 
 ## Features
 - Create and manage Bills of Materials.
