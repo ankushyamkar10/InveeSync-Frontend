@@ -59,7 +59,7 @@ const Sidebar = ({activeItem, setActiveItem}) => {
           isOpen ? "w-68" : "w-20"
         }`}
       >
-        {/* Header */}
+
         <div className="flex items-center justify-between p-4 border-b border-gray-100 bg-gray-50">
           {isOpen && (
             <div className="flex items-center gap-2">
@@ -84,7 +84,7 @@ const Sidebar = ({activeItem, setActiveItem}) => {
           </button>
         </div>
 
-        {/* Navigation */}
+
         <div className="flex-1 md:flex-none overflow-y-auto">
           <div className="p-4">
             <ul className="space-y-2 md:block flex items-center justify-between">
@@ -144,7 +144,7 @@ const Sidebar = ({activeItem, setActiveItem}) => {
           </div>
         </div>
 
-        {/* Quick Actions */}
+
         <div className="border-t border-gray-100 bg-gray-50">
           <div className="p-4">
             {isOpen && (
@@ -176,7 +176,7 @@ const Sidebar = ({activeItem, setActiveItem}) => {
         </div>
       </aside>
 
-      {/* Modals */}
+
       <BulkUploadModal />
 
       <dialog
@@ -202,14 +202,14 @@ const Sidebar = ({activeItem, setActiveItem}) => {
           </p>
           <div className="flex gap-3 justify-end mt-6">
             <button
-              className="btn btn-ghost"
+              className="btn btn-ghost text-gray-900 border border-gray-200"
               onClick={() =>
                 document.getElementById("download_templates").close()
               }
             >
               Cancel
             </button>
-            <button className="btn bg-blue-600 hover:bg-blue-700 text-white">
+            <button className="btn border border-blue-600 bg-blue-600 hover:bg-blue-700 text-white">
               Download
             </button>
           </div>

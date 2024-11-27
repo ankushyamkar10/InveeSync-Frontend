@@ -7,7 +7,7 @@ import Loading from "../components/Loading";
 
 const BulkUploadModal = () => {
   const [files, setFiles] = useState([]);
-  const [skipHeader, setSkipHeader] = useState(true); // Initially set to true to skip header
+  const [skipHeader, setSkipHeader] = useState(true);
   const [isUploading, setIsUploading] = useState(false);
   const [csvData, setCsvData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -39,13 +39,12 @@ const BulkUploadModal = () => {
   const handleFiles = (selectedFiles) => {
     const fileArray = Array.from(selectedFiles);
     setFiles(fileArray);
-    parseCSV(fileArray[0]); // Parse the first file (assuming only one file is selected)
+    parseCSV(fileArray[0]);
   };
 
   const parseCSV = (file) => {
     setIsLoading(true);
 
-    // Use `header: false` because we handle the header row manually later
     Papa.parse(file, {
       complete: (result) => {
         let data = result.data;
@@ -53,16 +52,16 @@ const BulkUploadModal = () => {
         setCsvData(data);
         setIsLoading(false);
       },
-      header: false, // Do not treat the first row as header in parsing
+      header: false,
       skipEmptyLines: true,
-      worker: true, // Use web worker to parse large files
+      worker: true,
     });
   };
 
   const handleSkipHeaderChange = () => {
     setSkipHeader(!skipHeader);
     if (files.length > 0) {
-      parseCSV(files[0]); // Re-parse the CSV when the header setting changes
+      parseCSV(files[0]); 
     }
   };
 
@@ -185,9 +184,7 @@ const BulkUploadModal = () => {
             >
               <table className="table-auto w-full border border-gray-300 mr-6">
                 <thead>
-                  {/* Render headers based on the skipHeader flag */}
                   {skipHeader ? (
-                    // Render indices (0, 1, 2, ...) when skipHeader is true
                     <tr>
                       {csvData[0] &&
                         Object.keys(csvData[0]).map((_, index) => (
@@ -200,7 +197,6 @@ const BulkUploadModal = () => {
                         ))}
                     </tr>
                   ) : (
-                    // Render the first row as the header when skipHeader is false
                     <tr>
                       {csvData[0] &&
                         Object.keys(csvData[0]).map((header, index) => (
@@ -215,7 +211,6 @@ const BulkUploadModal = () => {
                   )}
                 </thead>
                 <tbody>
-                  {/* Render rows */}
                   {skipHeader
                     ? csvData.map((row, rowIndex) => (
                         <tr key={rowIndex}>

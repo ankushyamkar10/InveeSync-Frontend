@@ -16,7 +16,7 @@ import {
 } from "react-icons/fi";
 
 const Landing = ({ activeItem: activeTab, setActiveItem: setActiveTab }) => {
-  // Render Components for each tab
+
   const renderActiveTab = () => {
     switch (activeTab) {
       case "Items Master":
@@ -34,7 +34,7 @@ const Landing = ({ activeItem: activeTab, setActiveItem: setActiveTab }) => {
 
   return (
     <div className="md:min-h-screen bg-gray-50 flex flex-col flex-1 overflow-auto">
-      {/* Header */}
+
       <div className="bg-white shadow-sm">
         <div className="container mx-auto px-4 pt-4 pb-5">
           <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
@@ -45,7 +45,7 @@ const Landing = ({ activeItem: activeTab, setActiveItem: setActiveTab }) => {
       </div>
 
       <div className="container mx-auto px-4 py-6 md:flex-1 flex flex-col">
-        {/* Stats Cards */}
+
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
           <div className="stats bg-white shadow">
             <div className="stat">
@@ -83,7 +83,7 @@ const Landing = ({ activeItem: activeTab, setActiveItem: setActiveTab }) => {
           </div>
         </div>
 
-        {/* Tabs */}
+
         <div className="tabs tabs-boxed bg-white p-1 rounded-lg mb-6 h-20 md:h-auto md:py-1.5">
           <button
             className={`tab gap-2 flex-1 h-20 md:h-auto md:py-1.5 ${
@@ -123,7 +123,7 @@ const Landing = ({ activeItem: activeTab, setActiveItem: setActiveTab }) => {
           </button>
         </div>
 
-        {/* Content Area */}
+
         <div className="bg-white rounded-lg shadow-sm md:p-6 h-96 overflow-auto">
           {renderActiveTab()}
         </div>

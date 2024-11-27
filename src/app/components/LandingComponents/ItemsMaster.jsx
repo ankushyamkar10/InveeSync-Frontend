@@ -72,7 +72,7 @@ const ItemFormModal = ({
       return false;
     }
 
-    // Validate the additional attributes
+
     if (
       !additional_attributes.drawing_revision_number ||
       !additional_attributes.drawing_revision_date ||
@@ -83,7 +83,7 @@ const ItemFormModal = ({
       return false;
     }
 
-    // Ensure unique combination of internal_item_name + tenantId
+
     const isDuplicate = items?.some(
       (item) =>
         item.internal_item_name === internal_item_name &&
@@ -103,44 +103,44 @@ const ItemFormModal = ({
     <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white p-6 rounded-lg shadow-lg w-[700px] max-w-full">
         <div className="flex justify-between items-center">
-          <h2 className="text-xl font-bold">Add/Edit Item</h2>
+          <h2 className="text-xl font-bold text-gray-900">Add/Edit Item</h2>
           <button onClick={onClose} className="text-red-600">
             <FaTimes />
           </button>
         </div>
         <div className="overflow-y-auto max-h-[500px] mt-4">
           <form className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Item Name */}
+
             <div className="w-full">
-              <label className="block font-semibold">Item Name</label>
+              <label className="block font-semibold text-gray-700">Item Name</label>
               <input
                 type="text"
                 value={formData.internal_item_name}
                 onChange={(e) => handleChange(e, 'internal_item_name')}
-                className="input input-bordered w-full"
+              className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
                 placeholder="Enter item name"
               />
             </div>
 
-            {/* Item Description */}
+
             <div className="w-full">
-              <label className="block font-semibold">Item Description</label>
+              <label className="block font-semibold text-gray-700">Item Description</label>
               <input
                 type="text"
                 value={formData.item_description}
                 onChange={(e) => handleChange(e, 'item_description')}
-                className="input input-bordered w-full"
+              className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
                 placeholder="Enter item description"
               />
             </div>
 
-            {/* Type */}
+
             <div className="w-full">
-              <label className="block font-semibold">Type</label>
+              <label className="block font-semibold text-gray-700">Type</label>
               <select
                 value={formData.type}
                 onChange={(e) => handleChange(e, 'type')}
-                className="select select-bordered w-full"
+                className="select select-bordered w-full bg-white text-gray-900 focus:outline-none"
               >
                 <option value="">Select type</option>
                 <option value="sell">Sell</option>
@@ -149,114 +149,114 @@ const ItemFormModal = ({
               </select>
             </div>
 
-            {/* UoM */}
+
             <div className="w-full">
-              <label className="block font-semibold">UoM</label>
+              <label className="block font-semibold text-gray-700">UoM</label>
               <input
                 type="text"
                 value={formData.uom}
                 onChange={(e) => handleChange(e, 'uom')}
-                className="input input-bordered w-full"
+              className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
                 placeholder="Enter UoM"
               />
             </div>
 
-            {/* Max Buffer */}
+
             <div className="w-full">
-              <label className="block font-semibold">Max Buffer</label>
+              <label className="block font-semibold text-gray-700">Max Buffer</label>
               <input
                 type="number"
                 value={formData.max_buffer}
                 onChange={(e) => handleChange(e, 'max_buffer')}
-                className="input input-bordered w-full"
+              className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
                 placeholder="Enter max buffer"
                 min="0"
               />
             </div>
 
-            {/* Min Buffer */}
+
             <div className="w-full">
-              <label className="block font-semibold">Min Buffer</label>
+              <label className="block font-semibold text-gray-700">Min Buffer</label>
               <input
                 type="number"
                 value={formData.min_buffer}
                 onChange={(e) => handleChange(e, 'min_buffer')}
-                className="input input-bordered w-full"
+              className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
                 placeholder="Enter min buffer"
                 min="0"
               />
             </div>
 
-            {/* Customer Item Name */}
+
             <div className="w-full">
-              <label className="block font-semibold">Customer Item Name</label>
+              <label className="block font-semibold text-gray-700">Customer Item Name</label>
               <input
                 type="text"
                 value={formData.customer_item_name}
                 onChange={(e) => handleChange(e, 'customer_item_name')}
-                className="input input-bordered w-full"
+              className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
                 placeholder="Enter customer item name"
               />
             </div>
 
-            {/* Additional Attributes */}
+
             <div className="w-full sm:col-span-2">
-              <h3 className="font-semibold mb-2">Additional Attributes</h3>
+              <h3 className="font-semibold mb-2 text-gray-900">Additional Attributes</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block font-semibold">Drawing Revision Number</label>
+                  <label className="block font-semibold text-gray-700">Drawing Revision Number</label>
                   <input
                     type="text"
                     value={formData.additional_attributes.drawing_revision_number}
                     onChange={(e) => handleAdditionalAttributeChange(e, 'drawing_revision_number')}
-                    className="input input-bordered w-full"
+                  className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-semibold">Drawing Revision Date</label>
+                  <label className="block font-semibold text-gray-700">Drawing Revision Date</label>
                   <input
                     type="date"
                     value={formData.additional_attributes.drawing_revision_date}
                     onChange={(e) => handleAdditionalAttributeChange(e, 'drawing_revision_date')}
-                    className="input input-bordered w-full"
+                  className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-semibold">Average Weight Needed</label>
+                  <label className="block font-semibold text-gray-700">Average Weight Needed</label>
                   <input
                     type="number"
                     value={formData.additional_attributes.avg_weight_needed}
                     onChange={(e) => handleAdditionalAttributeChange(e, 'avg_weight_needed')}
-                    className="input input-bordered w-full"
+                  className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
                     min="0"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-semibold">Scrap Type</label>
+                  <label className="block font-semibold text-gray-700">Scrap Type</label>
                   <input
                     type="text"
                     value={formData.additional_attributes.scrap_type}
                     onChange={(e) => handleAdditionalAttributeChange(e, 'scrap_type')}
-                    className="input input-bordered w-full"
+                  className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-semibold">Shelf Floor Alternate Name</label>
+                  <label className="block font-semibold text-gray-700">Shelf Floor Alternate Name</label>
                   <input
                     type="text"
                     value={formData.additional_attributes.shelf_floor_alternate_name}
                     onChange={(e) => handleAdditionalAttributeChange(e, 'shelf_floor_alternate_name')}
-                    className="input input-bordered w-full"
+                  className="input input-borderd w-full bg-white text-gray-900 disabled:bg-white disabled:border-gray-200 disabled:placeholder:text-gray-900 focus:outline-none border border-gray-200"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Is Job Work */}
+
             <div className="flex items-center space-x-2 sm:col-span-2">
               <input
                 type="checkbox"
@@ -264,12 +264,12 @@ const ItemFormModal = ({
                 onChange={(e) => handleChange(e, 'is_job_work')}
                 className="checkbox checkbox-primary"
               />
-              <label className="font-semibold">Is Job Work</label>
+              <label className="font-semibold text-gray-900">Is Job Work</label>
             </div>
           </form>
         </div>
 
-        {/* Save/Cancel Buttons */}
+
         <div className="mt-6 flex justify-end space-x-2">
           <button className="btn btn-outline" onClick={onClose}>
             Cancel
@@ -358,8 +358,7 @@ const ItemMasterRow = React.memo(({ item, onEdit, onDelete }) => {
             onChange={(selected) => handleChange(selected.value, "type")}
             options={typeOptions}
             placeholder="Select Type"
-            className="w-full"
-          />
+            className="react-select text-gray-900 bg-white"          />
         ) : (
           item.type
         )}
@@ -453,7 +452,7 @@ const ItemsMaster = () => {
       <div className="flex justify-between mb-4">
         <h1 className="text-xl font-bold text-gray-900">Items Master</h1>
         <button
-          className="btn btn-primary"
+          className="btn btn-primary text-white"
           onClick={() => {
             setEditItem(null);
             setIsModalOpen(true);
@@ -463,15 +462,15 @@ const ItemsMaster = () => {
         </button>
       </div>
       <div className="overflow-x-auto">
-        <table className="table table-auto w-full">
+        <table className="table table-auto w-full border border-gray-200">
           <thead>
-            <tr className=" text-gray-900 text-center">
-              <th className="text-left">Item Name</th>
-              <th>Type</th>
-              <th>UoM</th>
-              <th>Avg Weight</th>
-              <th>Status</th>
-              <th>Action</th>
+            <tr className="bg-gray-100 text-gray-900 text-center">
+              <th className="px-4 py-3 text-left">Item Name</th>
+              <th className="px-4 py-3 text-center">Type</th>
+              <th className="px-4 py-3 text-center">UoM</th>
+              <th className="px-4 py-3 text-center">Avg Weight</th>
+              <th className="px-4 py-3 text-center">Status</th>
+              <th className="px-4 py-3 text-center">Action</th>
             </tr>
           </thead>
           <tbody>

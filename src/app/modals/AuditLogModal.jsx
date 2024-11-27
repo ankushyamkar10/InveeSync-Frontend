@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 
 const AuditLogModal = () => {
-  // Sample data
+
   const sampleData = [
     {
       timestamp: "2024-11-16 10:30 AM",
@@ -69,7 +69,6 @@ const AuditLogModal = () => {
   const [isActionDropdownOpen, setIsActionDropdownOpen] = useState(false);
   const itemsPerPage = 3;
 
-  // Filter data based on search query and selected action
   const filteredData = sampleData.filter((item) => {
     const matchesSearch =
       item.details.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -79,7 +78,6 @@ const AuditLogModal = () => {
     return matchesSearch && matchesAction;
   });
 
-  // Calculate pagination
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   const paginatedData = filteredData.slice(
     (currentPage - 1) * itemsPerPage,
@@ -113,7 +111,6 @@ const AuditLogModal = () => {
           </div>
 
           <div className="flex gap-4 mb-6">
-            {/* Date Range Dropdown */}
             <div className="dropdown relative">
               <label
                 tabIndex={0}
@@ -140,7 +137,6 @@ const AuditLogModal = () => {
               )}
             </div>
 
-            {/* Action Dropdown */}
             <div className="dropdown relative">
               <label
                 tabIndex={0}

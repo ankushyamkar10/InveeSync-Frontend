@@ -26,7 +26,7 @@ const PendingSetup = () => {
 
   return (
     <div className="min-w-[20%] border-l border-gray-200 bg-white p-6">
-      {/* Header */}
+
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
           <FiTool className="text-warning" />
@@ -37,7 +37,7 @@ const PendingSetup = () => {
         </div>
       </div>
 
-      {/* Items List */}
+
       <div className="space-y-4">
         {pendingItems.map((item, index) => (
           <div
@@ -56,13 +56,13 @@ const PendingSetup = () => {
                   <p className="text-sm text-base-content/70 mb-3">
                     {item.description}
                   </p>
-                  <a
+                  <span
                     href={item.href}
                     className="btn btn-warning btn-sm gap-2 w-full"
                   >
                     Resolve Now
                     <FiChevronRight className="w-4 h-4" />
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@ const PendingSetup = () => {
         ))}
       </div>
 
-      {/* Footer */}
+
       {pendingItems.length > 0 && (
         <div className="mt-6">
           <button
@@ -82,7 +82,7 @@ const PendingSetup = () => {
         </div>
       )}
 
-      {/* Modal */}
+
       {isModalOpen && <ErrorHandlerModal onClose={closeModal} />}
     </div>
   );
