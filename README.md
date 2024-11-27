@@ -37,8 +37,8 @@ Follow the steps below to run this project locally:
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
-   cd inveesync-assignment-master
+   git clone https://github.com/ankushyamkar10/InveeSync-Frontend.git  
+   cd inveesync-frontend
    ```
 
 2. **Install dependencies**:
