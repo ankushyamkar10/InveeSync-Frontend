@@ -233,7 +233,7 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
 
   const renderUploadSection = () => (
     <div
-      className="flex flex-col items-center justify-center w-full h-[20em] border rounded-lg cursor-pointer border-gray-300 border-dashed bg-gray-800"
+      className="flex flex-col items-center justify-center w-full h-[20em] border rounded-lg cursor-pointer border-gray-300 border-dashed bg-white dark:bg-gray-800"
       onDragEnter={handleDragEvents}
       onDragLeave={handleDragEvents}
       onDragOver={handleDragEvents}
@@ -277,24 +277,24 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
 
   return (
     <>
-      <div className="fixed inset-0 bg-gray-800 bg-opacity-60 flex justify-center items-center z-50">
-        <div className="modal-box bg-gray-800 text-gray-200 p-6 w-[95%] h-[80%] md:h-[75%] flex flex-col relative border border-gray-300">
+      <div className="fixed inset-0 bg-white/60 dark:bg-gray-800/60 flex justify-center items-center z-50">
+        <div className="modal-box bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 p-6 w-[95%] max-h-[80%] md:max-h-[70%] flex flex-col relative border border-gray-300">
           <form method="dialog">
             <button
-              className="btn btn-sm btn-circle btn-ghost absolute right-4 top-4 text-gray-300 border border-gray-300 rounded-full"
+              className="btn btn-sm btn-circle btn-ghost absolute right-4 top-4 text-gray-900 dark:text-gray-300 border border-gray-300 rounded-full"
               aria-label="Close"
               onClick={onClose}
             >
               ✕
             </button>
           </form>
-          <h3 className="font-bold text-lg mb-4">Bulk Data Upload</h3>
+          <h3 className="font-bold text-lg mb-4 text-gray-900 dark:text-gray-200 ">Bulk Data Upload</h3>
 
           {/* Main content container */}
           <div className="flex-1 flex flex-col relative">
             {renderUploadSection()}
 
-            <p className="text-gray-300 text-xs my-2">
+            <p className="text-gray-900 dark:text-gray-300 text-xs my-2">
               Supported file types: .csv, .xls, .xlsx, .ods
             </p>
             <div className="flex items-center justify-end gap-4 mt-8">
@@ -312,17 +312,17 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
         </div>
 
         {csvData.length > 0 && (
-          <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-[60]">
-            <div className="modal-box bg-gray-800 text-gray-200 p-6 min-w-[90vw] min-h-[90vh]  flex flex-col relative  border border-gray-300">
+          <div className="fixed inset-0 bg-white/60 dark:bg-gray-800/60 flex justify-center items-center z-[60]">
+            <div className="modal-box bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 p-6 min-w-[90vw] min-h-[90vh]  flex flex-col relative  border border-gray-300">
               <h3 className="font-bold text-lg mb-4">Preview Complete</h3>
 
               {/* Main Preview Table */}
               <div className="relative overflow-x-auto shadow-md sm:rounded-lg mb-6">
                 <table className="w-full text-sm text-left rtl:text-right text-gray-400 border border-gray-200">
-                  <thead className="text-xs  uppercase bg-gray-700 text-gray-400">
-                    <tr className="text-gray-200 text-center ">
+                  <thead className="text-xs  uppercase bg-gary-300 dark:bg-gray-700 text-gray-400">
+                    <tr className="text-gray-900 dark:text-gray-200 text-center ">
                       {schemaFields.map((field, index) => (
-                        <th key={index} className="px-6 py-3 text-center bg-gray-700">
+                        <th key={index} className="px-6 py-3 text-center bg-gary-300 dark:bg-gray-700">
                           {field}
                         </th>
                       ))}
@@ -360,20 +360,20 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
               </div>
 
               {/* Invalid Entries Section */}
-              <h3 className="font-bold text-md mb-2 text-gray-300">
+              <h3 className="font-bold text-md mb-2 text-gray-900 dark:text-gray-300">
                 Invalid Entries
               </h3>
               <div className="relative overflow-x-auto shadow-md sm:rounded-lg mb-6">
                 <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border border-gray-200">
                   <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr className="text-gray-200 text-center ">
+                    <tr className="text-gray-900 dark:text-gray-200 text-center ">
                       {schemaFields.map((field, index) => (
-                        <th key={index} className="px-6 py-3 text-center bg-gray-700">
+                        <th key={index} className="px-6 py-3 text-center bg-gary-300 dark:bg-gray-700">
                           {field}
                         </th>
                       ))}
-                      <th className="px-6 py-3 text-center bg-gray-700">Reason</th>
-                      <th className="px-6 py-3 text-center bg-gray-700">Action</th>
+                      <th className="px-6 py-3 text-center bg-gary-300 dark:bg-gray-700">Reason</th>
+                      <th className="px-6 py-3 text-center bg-gary-300 dark:bg-gray-700">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -455,7 +455,7 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
 
               <form method="dialog">
                 <button
-                  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-gray-300 border border-gray-300 rounded-full"
+                  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-gray-900 dark:text-gray-300 border border-gray-300 rounded-full"
                   aria-label="Close"
                   onClick={handleClosePreviewModal}
                 >

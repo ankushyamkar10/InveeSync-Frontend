@@ -191,7 +191,7 @@ const ItemsMaster = () => {
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
           {/* Header Section */}
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-blue-900 dark:text-white mb-6">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               Items Master
             </h1>
 
@@ -267,7 +267,7 @@ const ItemsMaster = () => {
           {!isLoading && data ? (
             <div className="overflow-x-auto shadow-md">
               <table className="w-full text-sm text-left rtl:text-right">
-                <thead className="bg-gray-800 text-gray-300">
+                <thead className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300">
                   <tr className="bg-blue-800">
                     {[
                       "Item Name",
@@ -279,7 +279,7 @@ const ItemsMaster = () => {
                     ].map((header) => (
                       <th
                         key={header}
-                        className="px-6 py-3 text-center font-semibold bg-gray-800"
+                        className="px-6 py-3 text-center font-semibold bg-white dark:bg-gray-800"
                       >
                         {header}
                       </th>
@@ -295,20 +295,20 @@ const ItemsMaster = () => {
                           key={item.id}
                           className="
                           border-b border-gray-700
-                           hover:bg-gray-800
+                           hover:bg-white hover:dark:bg-gray-700 dark:bg-gray-800
                           transition-colors duration-200
                         "
                         >
-                          <td className="px-6 py-4 font-medium text-white">
+                          <td className="px-6 py-4 font-medium dark:text-gray-300 text-gray-900">
                             {item.internal_item_name}
                           </td>
-                          <td className="px-6 py-4 text-center text-gray-300">
+                          <td className="px-6 py-4 text-center text-gray-900 dark:text-gray-300">
                             {item.type}
                           </td>
-                          <td className="px-6 py-4 text-center text-gray-300">
+                          <td className="px-6 py-4 text-center text-gray-900 dark:text-gray-300">
                             {item.uom}
                           </td>
-                          <td className="px-6 py-4 text-center text-gray-300">
+                          <td className="px-6 py-4 text-center text-gray-900 dark:text-gray-300">
                             {item.additional_attributes?.avg_weight_needed?.toString()}
                           </td>
                           <td className="px-6 py-4 text-center">
@@ -356,11 +356,11 @@ const ItemsMaster = () => {
                     })
                   ) : (
                     <tr>
-                      <td colSpan="6" className="text-center py-12 hover:bg-gray-800">
+                      <td colSpan="6" className="text-center py-12 hover:bg-white hover:dark:bg-gray-700 dark:bg-gray-800">
                         <div className="flex flex-col items-center justify-center space-y-4">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-24 w-24 text-gray-600"
+                            className="h-24 w-24 text-gray-600  dark:text-gray-400"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"

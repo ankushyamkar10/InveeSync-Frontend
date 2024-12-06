@@ -87,10 +87,10 @@ export const ItemFormModal = ({ isOpen, onClose, onSave, item, isEdit }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-[700px] max-h-[80%] overflow-auto max-w-full border border-gray-300">
+    <div className="fixed inset-0 bg-white/60 dark:bg-gray-800/60 flex justify-center items-center z-50">
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-[700px] max-h-[80%] overflow-auto max-w-full border border-gray-300">
         <div className="flex justify-between items-center">
-          <h2 className="text-xl font-bold text-gray-300">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-300">
             {isEdit ? "Edit Item" : "Add Item"}
           </h2>
           <button onClick={onClose} className="text-red-600">
@@ -108,7 +108,7 @@ export const ItemFormModal = ({ isOpen, onClose, onSave, item, isEdit }) => {
             "customer_item_name",
           ].map((field) => (
             <div key={field} className="w-full">
-              <label className="block font-semibold text-gray-300">
+              <label className="block font-semibold text-gray-900 dark:text-gray-300">
                 {field.replace("_", " ").toUpperCase()}{" "}
                 <span className="text-red-600">*</span>
               </label>
@@ -120,7 +120,7 @@ export const ItemFormModal = ({ isOpen, onClose, onSave, item, isEdit }) => {
                 }
                 value={formData[field] || ""}
                 onChange={(e) => handleChange(e, field)}
-                className="input input-bordered w-full bg-gray-700 text-gray-300 focus:outline-none"
+                className="input input-bordered w-full bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-300 focus:outline-none"
                 placeholder={`Enter ${field.replace("_", " ")}`}
               />
               {errors[field] && (
@@ -130,7 +130,7 @@ export const ItemFormModal = ({ isOpen, onClose, onSave, item, isEdit }) => {
           ))}
 
           <div className="w-full sm:col-span-2">
-            <h3 className="text-md font-semibold text-gray-300 mt-4">
+            <h3 className="text-md font-semibold text-gray-900 dark:text-gray-300 mt-4">
               Additional Attributes
             </h3>
             {[
@@ -141,7 +141,7 @@ export const ItemFormModal = ({ isOpen, onClose, onSave, item, isEdit }) => {
               "shelf_floor_alternate_name",
             ].map((attr) => (
               <div key={attr} className="my-4">
-                <label className="block text-sm font-semibold text-gray-300">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-300">
                   {attr.replace("_", " ").toUpperCase()}{" "}
                   <span className="text-red-600">*</span>
                 </label>
@@ -150,7 +150,7 @@ export const ItemFormModal = ({ isOpen, onClose, onSave, item, isEdit }) => {
                     {["TRUE", "FALSE"].map((value) => (
                       <label
                         key={value}
-                        className="flex items-center text-gray-300"
+                        className="flex items-center text-gray-900 dark:text-gray-300"
                       >
                         <input
                           type="radio"
@@ -170,7 +170,7 @@ export const ItemFormModal = ({ isOpen, onClose, onSave, item, isEdit }) => {
                     type={attr === "drawing_revision_date" ? "date" : "text"}
                     value={formData.additional_attributes[attr] || ""}
                     onChange={(e) => handleAttributeChange(e, attr)}
-                    className="input input-bordered w-full bg-gray-700 text-gray-300 focus:outline-none"
+                    className="input input-bordered w-full bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-300 focus:outline-none"
                     placeholder={`Enter ${attr.replace("_", " ")}`}
                   />
                 )}

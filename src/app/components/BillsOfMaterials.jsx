@@ -58,19 +58,19 @@ const BillsOfMaterials = () => {
   const [itemsTypes, setItemsTypes] = useState({});
 
   useEffect(() => {
-    // Check if itemsData is available and is an array
+
     if (itemsData && Array.isArray(itemsData)) {
-      // Create a new object to avoid mutating the existing state
+
       const newItemsTypes = {};
 
-      // Loop through the data and transform it into the desired object format
+
       itemsData.forEach((item) => {
         if (item.id && item.type) {
           newItemsTypes[item.id] = item.type;
         }
       });
 
-      // Update the state with the transformed object
+
       setItemsTypes(newItemsTypes);
     }
   }, [itemsData]);
@@ -164,17 +164,14 @@ const BillsOfMaterials = () => {
   return (
     <div className="min-h-screen from-gray-900 to-gray-800 w-full flex flex-col overflow-auto">
       <div className="container mx-auto px-4 py-8 md:flex-1">
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
-          {/* Header Section */}
-          <div className="mb-8">
+        <div className="bg-white  dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+                <div className="mb-8">
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               Bill of Materials
             </h1>
   
-            {/* Search and Action Buttons */}
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              {/* Search Input */}
-              <div className="relative w-full md:w-auto">
+                  <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div className="relative w-full md:w-auto">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <FaSearch className="text-gray-400" />
                 </div>
@@ -183,19 +180,19 @@ const BillsOfMaterials = () => {
                   placeholder="Search BoMs..."
                   className="
                     w-full md:w-96 pl-10 pr-4 py-2 
-                    border border-gray-300 rounded-full 
+                    border border-gray-200 rounded-2xl 
                     focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                     transition-all duration-300
-                    bg-white text-gray-900
+                    bg-gray-50 text-blue-900
                     dark:bg-gray-700 dark:text-white dark:border-gray-600
+                    shadow-md
                   "
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
   
-              {/* Action Buttons */}
-              <div className="flex space-x-4">
+                    <div className="flex space-x-4">
                 <button
                   className="
                     flex items-center gap-2 
@@ -238,16 +235,15 @@ const BillsOfMaterials = () => {
             </div>
           </div>
   
-          {/* Data Table */}
-          {!bomLoading && bomData ? (
+                {!bomLoading && bomData ? (
             <div className="overflow-x-auto shadow-md">
              <table className="w-full text-sm text-left rtl:text-right">
-                <thead className="bg-gray-800 text-gray-300">
+                <thead className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300">
                   <tr className="bg-blue-800">
                     {["ID", "Item ID", "Component ID", "Quantity", "Status", "Action"].map((header) => (
                       <th 
                         key={header} 
-                        className="px-6 py-3 text-center font-semibold bg-gray-800"
+                        className="px-6 py-3 text-center font-semibold bg-white dark:bg-gray-800"
                       >
                         {header}
                       </th>
@@ -261,20 +257,20 @@ const BillsOfMaterials = () => {
                         key={component.id}
                         className="
                            border-b border-gray-700
-                           hover:bg-gray-800
+                           hover:bg-white hover:dark:bg-gray-700 dark:bg-gray-800
                           transition-colors duration-200
                         "
                       >
-                        <td className="px-6 py-4 font-medium text-white">
+                        <td className="px-6 py-4 font-medium dark:text-gray-300 text-gray-900">
                           {component.id}
                         </td>
-                        <td className="px-6 py-4 text-center text-gray-300">
+                        <td className="px-6 py-4 text-center text-gray-900 dark:text-gray-300">
                           {component.item_id}
                         </td>
-                        <td className="px-6 py-4 text-center text-gray-300">
+                        <td className="px-6 py-4 text-center text-gray-900 dark:text-gray-300">
                           {component.component_id}
                         </td>
-                        <td className="px-6 py-4 text-center text-gray-300">
+                        <td className="px-6 py-4 text-center text-gray-900 dark:text-gray-300">
                           {component.quantity}
                         </td>
                         <td className="px-6 py-4 text-center">
@@ -321,11 +317,11 @@ const BillsOfMaterials = () => {
                     ))
                   ) : (
                     <tr>
-                      <td colSpan="6" className="text-center py-12 hover:bg-gray-800">
+                      <td colSpan="6" className="text-center py-12 hover:bg-white hover:dark:bg-gray-700 dark:bg-gray-800">
                       <div className="flex flex-col items-center justify-center space-y-4">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-24 w-24 text-gray-600"
+                            className="h-24 w-24 text-gray-600  dark:text-gray-400"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -373,8 +369,7 @@ const BillsOfMaterials = () => {
 
       {isBomError && <ErrorCard error={bomError} />}
 
-      {/* Modals */}
-      {isBulkModalOpen && (
+            {isBulkModalOpen && (
         <BomBulkModal
           isOpen={isBulkModalOpen}
           onClose={handleCloseModal}

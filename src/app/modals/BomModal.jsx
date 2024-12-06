@@ -72,10 +72,10 @@ export const BomFormModal = ({
 
 
   return (
-    <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
-    <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-[700px] max-h-[80%] overflow-auto max-w-full border border-gray-300">
+    <div className="fixed inset-0 bg-white/60 dark:bg-gray-800/60 flex justify-center items-center z-50">
+    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-[700px] max-h-[80%] overflow-auto max-w-full border border-gray-300">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-bold text-gray-300">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-gray-300">
             {isEdit ? "Edit BoM Entry" : "Add BoM Entry"}
           </h2>
           <button onClick={onClose} className="text-red-600">
@@ -86,7 +86,7 @@ export const BomFormModal = ({
           <form className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Item ID */}
             <div className="w-full">
-            <label className="block font-semibold text-gray-300">
+            <label className="block font-semibold text-gray-900 dark:text-gray-300">
             Item ID <span className="text-red-600">*</span>
               </label>
               <Select
@@ -95,14 +95,14 @@ export const BomFormModal = ({
                 )}
                 onChange={(selected) => handleSelectChange(selected, "item_id")}
                 options={itemOptions}
-                className="bg-gray-700 text-gray-300 focus:outline-none"
+                className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-300 focus:outline-none"
                 placeholder="Select Item"
               />
             </div>
 
             {/* Component ID */}
             <div className="w-full">
-              <label className="block font-semibold text-gray-300">
+              <label className="block font-semibold text-gray-900 dark:text-gray-300">
                 Component ID <span className="text-red-600">*</span>
               </label>
               <Select
@@ -113,21 +113,21 @@ export const BomFormModal = ({
                   handleSelectChange(selected, "component_id")
                 }
                 options={itemOptions}
-                className="bg-gray-700 text-gray-300 focus:outline-none"
+                className="bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-300 focus:outline-none"
                 placeholder="Select Component"
               />
             </div>
 
             {/* Quantity */}
             <div className="w-full">
-              <label className="block font-semibold text-gray-300">
+              <label className="block font-semibold text-gray-900 dark:text-gray-300">
                 Quantity <span className="text-red-600">*</span>
               </label>
               <input
                 type="number"
                 value={formData.quantity}
                 onChange={(e) => handleChange(e, "quantity")}
-                className="input input-bordered w-full bg-gray-700 text-gray-300 focus:outline-none"
+                className="input input-bordered w-full bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-300 focus:outline-none"
                 placeholder="Enter Quantity"
               />
             </div>
@@ -142,7 +142,7 @@ export const BomFormModal = ({
                 className="btn btn-primary bg-gradient-to-br from-blue-500 to-blue-600 text-white 
                 hover:from-blue-600 hover:to-blue-700 
                 transition-all duration-300 
-                shadow-xl hover:shadow-2xl disabled:bg-gray-700"
+                shadow-xl hover:shadow-2xl disabled:bg-gray-50 dark:bg-gray-700"
             onClick={() => {
               if (validateForm()) {
                 onSave(formData);

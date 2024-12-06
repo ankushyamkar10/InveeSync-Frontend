@@ -19,7 +19,7 @@ const GlassCard = ({ title, count, icon: Icon, isLoading, colorClass, gradientCl
     <div className="absolute inset-0 bg-white/10 backdrop-blur-lg"></div>
     <div className="relative z-10 p-6">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300">{title}</h3>
+        <h3 className="text-sm font-medium text-gray-700  dark:text-gray-300">{title}</h3>
         <div className={`p-2 rounded-full ${colorClass} bg-opacity-20`}>
           <Icon size={20} className={`${colorClass}`} />
         </div>
@@ -122,7 +122,7 @@ const Landing = () => {
                 flex items-center gap-2 
                 ${activeTab === "Items Master" 
                   ? "bg-blue-600 text-white" 
-                  : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"}
+                  : "text-gray-600  dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"}
               `}
               onClick={() => setActiveTab("Items Master")}
             >
@@ -145,7 +145,7 @@ const Landing = () => {
         </div>
 
         {/* Active Tab Content */}
-        <div className="bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
           {renderActiveTab()}
         </div>
       </div>

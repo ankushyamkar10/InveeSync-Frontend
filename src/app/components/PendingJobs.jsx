@@ -78,7 +78,7 @@ const PendingSetup = () => {
                     >
                       {item.title}
                     </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-0">
+                    <p className="text-sm text-gray-600  dark:text-gray-300 mb-0">
                       {item.description}
                     </p>
                   </div>
