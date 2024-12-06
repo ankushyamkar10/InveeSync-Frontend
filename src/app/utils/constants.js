@@ -1,4 +1,4 @@
-export const VALID_UOMS = ["kgs", "nos", "KG"];
+export const VALID_UOMS = ["kgs", "nos", "KG", "NOS"];
 export const VALID_TYPES = ["sell", "purchase", "component"];
 export const BASE_URL = "https://api-assignment.inveesync.in";
 export const bomSchema = {

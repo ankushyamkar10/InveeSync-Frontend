@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { FaArrowUp, FaUpload } from "react-icons/fa";
+import { FaUpload } from "react-icons/fa";
 import * as XLSX from "xlsx";
-import { validateItems } from "../../app/validators/ItemValidator";
+import { validateItems } from "../validations/ItemValidation";
 import {
   useCreateItemMutation,
   useFetchItems,
@@ -13,13 +13,9 @@ import {
   parseItemFile,
   setItemFiles,
   clearItemData,
-  FILE_UPLOAD_KEY_ITEMS,
   editItemsCsvCell,
-} from "@/app/feature/fileUploadItemSlice";
-import {
-  loadFromLocalStorage,
-  saveToLocalStorage,
-} from "../utils/localStorageUtils";
+} from "@/app/feature/itemUploadsSlice";
+
 
 const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 'use client';
-import PendingSetup from "./components/PendingSetup";
+import PendingSetup from "./components/PendingJobs";
 import Landing from "./components/Landing";
 import { FiSettings, FiTool } from "react-icons/fi";
 import { useState } from "react";

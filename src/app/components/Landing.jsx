@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { useQuery } from "react-query";
-import ItemsMaster from "./LandingComponents/ItemsMaster";
-import BillsOfMaterials from "./LandingComponents/BillsOfMaterials";
+import ItemsMaster from "./ItemsMaster";
+import BillsOfMaterials from "./BillsOfMaterials";
 import {
   FiBox,
   FiLayers,
@@ -11,9 +10,9 @@ import {
   FiCheckSquare,
   FiAlertCircle,
 } from "react-icons/fi";
-import { useFetchBoM } from "../queries/BoM";
+import { useFetchBoM } from "../queries/BillsOfMaterial";
 import { useFetchItems } from "../queries/ItemsMaster";
-import { usePendingSetup } from "../hooks/usePendingSetup";
+import { usePendingSetup } from "../hooks/usePendingJobs";
 
 const GlassCard = ({ title, count, icon: Icon, isLoading, colorClass, gradientClass }) => (
   <div className={`relative overflow-hidden rounded-2xl shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl ${gradientClass}`}>
@@ -146,7 +145,7 @@ const Landing = () => {
         </div>
 
         {/* Active Tab Content */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+        <div className="bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
           {renderActiveTab()}
         </div>
       </div>

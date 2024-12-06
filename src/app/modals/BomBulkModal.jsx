@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { FaArrowUp, FaUpload } from "react-icons/fa";
+import { FaUpload } from "react-icons/fa";
 import * as XLSX from "xlsx";
-import { validateBoMs } from "@/app/validators/BoMValidator";
-import { useCreateBoMMutation, useFetchBoM } from "@/app/queries/BoM";
+import { validateBoMs } from "@/app/validations/BoMValidation";
+import { useCreateBoMMutation, useFetchBoM } from "@/app/queries/BillsOfMaterial";
 import {
   useFetchItems,
 } from "@/app/queries/ItemsMaster";
@@ -13,10 +13,8 @@ import {
   parseBomFile,
   setBomFiles,
   clearBomData,
-  FILE_UPLOAD_KEY_BOM,
   editBomCsvCell,
-} from "@/app/feature/fileUploadBomSlice";
-import { loadFromLocalStorage, saveToLocalStorage } from "../utils/localStorageUtils";
+} from "@/app/feature/bomUploadsSlice";
 
 const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
   const dispatch = useDispatch();
@@ -308,7 +306,7 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
           <div className="flex-1 flex flex-col relative">
             {renderUploadSection()}
 
-            <p className="text-gray-500 text-xs my-2">
+            <p className="text-gray-300 text-xs my-2">
               Supported file types: .csv, .xls, .xlsx, .ods
             </p>
             <div className="flex items-center justify-end gap-4 mt-8">

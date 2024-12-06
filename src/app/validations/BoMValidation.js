@@ -1,4 +1,4 @@
-import { ITEM_TYPES } from "./ItemValidator";
+import { ITEM_TYPES } from "./ItemValidation";
 
 export const validateBoMs = (data, skipHeader = true, itemsTypes, fetchedBoms) => {
   const processedData = skipHeader ? data.slice(1) : data;

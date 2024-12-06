@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import Select from "react-select";
-import { VALID_UOMS } from "../utils/constants";
 
 export const BomFormModal = ({
   isOpen,
@@ -103,7 +102,7 @@ export const BomFormModal = ({
 
             {/* Component ID */}
             <div className="w-full">
-              <label className="block font-semibold text-gray-700">
+              <label className="block font-semibold text-gray-300">
                 Component ID <span className="text-red-600">*</span>
               </label>
               <Select

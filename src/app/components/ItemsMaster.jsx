@@ -17,12 +17,12 @@ import {
 } from "react-icons/fa";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Loading from "../Loading";
 import { ItemFormModal } from "@/app/modals/ItemModal";
 import { useQueryClient } from "react-query";
 import { useSelector } from "react-redux";
 import ItemBulkModal from "@/app/modals/ItemBulkModal";
-import ErrorCard from "../ErrorCard";
+import ErrorCard from "./ErrorCard";
+import Loading from "./Loading";
 
 const VALID_TYPES = ["sell", "purchase"];
 const VALID_UOMS = ["kgs", "kg", "nos", "no"];
@@ -186,7 +186,7 @@ const ItemsMaster = () => {
   };
 
   return (
-    <div className="max-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 w-full flex flex-col overflow-auto">
+    <div className="max-h-screen w-full flex flex-col overflow-auto">
       <div className="container mx-auto px-4 py-8 md:flex-1 bg-inherit">
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
           {/* Header Section */}

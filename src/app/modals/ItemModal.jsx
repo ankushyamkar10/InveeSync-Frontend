@@ -130,7 +130,7 @@ export const ItemFormModal = ({ isOpen, onClose, onSave, item, isEdit }) => {
           ))}
 
           <div className="w-full sm:col-span-2">
-            <h3 className="text-md font-semibold text-gray-700 mt-4">
+            <h3 className="text-md font-semibold text-gray-300 mt-4">
               Additional Attributes
             </h3>
             {[

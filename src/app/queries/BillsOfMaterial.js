@@ -5,7 +5,7 @@ import {
   deleteBoM,
   getBoM,
   getItems,
-} from "../services/BoM";
+} from "../services/BillsOfMaterial";
 
 // Fetch BoM Data
 export const useFetchBoM = () => {

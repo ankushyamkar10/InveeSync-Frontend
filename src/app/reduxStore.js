@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import fileUploadItemReducer from "@/app/feature/fileUploadItemSlice.js"
-import fileUploadBomReducer from "@/app/feature/fileUploadBomSlice.js"
+import fileUploadItemReducer from "@/app/feature/itemUploadsSlice.js"
+import fileUploadBomReducer from "@/app/feature/bomUploadsSlice.js"
 
 export const store = configureStore({
   reducer: {

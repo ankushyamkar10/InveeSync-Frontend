@@ -6,7 +6,7 @@ import {
   useCreateBoMMutation,
   useUpdateBoMMutation,
   useDeleteBoMMutation,
-} from "@/app/queries/BoM";
+} from "@/app/queries/BillsOfMaterial";
 import { useFetchItems } from "@/app/queries/ItemsMaster";
 import {
   FaEdit,
@@ -17,11 +17,11 @@ import {
   FaEye,
 } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import Loading from "../Loading";
+import Loading from "./Loading";
 import Select from "react-select";
 import { BomFormModal } from "@/app/modals/BomModal";
 import BomBulkModal from "@/app/modals/BomBulkModal";
-import ErrorCard from "../ErrorCard";
+import ErrorCard from "./ErrorCard";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -162,7 +162,7 @@ const BillsOfMaterials = () => {
   if (bomLoading || itemsLoading) return <Loading />;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 w-full flex flex-col overflow-auto">
+    <div className="min-h-screen from-gray-900 to-gray-800 w-full flex flex-col overflow-auto">
       <div className="container mx-auto px-4 py-8 md:flex-1">
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
           {/* Header Section */}

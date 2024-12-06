@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Provider } from 'react-redux';
-import { store } from "./store";
+import { store } from "./reduxStore";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

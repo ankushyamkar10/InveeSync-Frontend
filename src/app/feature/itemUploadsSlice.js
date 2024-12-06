@@ -5,7 +5,7 @@ import {
   loadFromLocalStorage, 
   saveToLocalStorage, 
   removeFromLocalStorage 
-} from '../utils/localStorageUtils';
+} from '../utils/localStorage';
 
 export const FILE_UPLOAD_KEY_ITEMS = 'fileUploadItemState';
 

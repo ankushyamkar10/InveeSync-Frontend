@@ -3,8 +3,8 @@ import React, { useState, useMemo } from "react";
 import { FiAlertTriangle, FiChevronRight, FiTool } from "react-icons/fi";
 import BomBulkModal from "../modals/BomBulkModal";
 import { useFetchItems } from "../queries/ItemsMaster";
-import { useFetchBoM } from "../queries/BoM";
-import { usePendingSetup } from "../hooks/usePendingSetup";
+import { useFetchBoM } from "../queries/BillsOfMaterial";
+import { usePendingSetup } from "../hooks/usePendingJobs";
 import Loading from "./Loading";
 
 const PendingSetup = () => {
