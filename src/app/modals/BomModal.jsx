@@ -37,7 +37,6 @@ export const BomFormModal = ({
     };
   }, [isEdit, bomEntry]);
 
-  // Handle form field changes
   const handleChange = (e, name) => {
     const value = name === "quantity" ? e.target.value : e.target.value;
     setFormData({ ...formData, [name]: value });
@@ -47,11 +46,9 @@ export const BomFormModal = ({
     setFormData({ ...formData, [name]: selected ? selected.value : "" });
   };
 
-  // Form validation
   const validateForm = () => {
     const { item_id, component_id, quantity, uom } = formData;
 
-    // Ensure that required fields are filled and valid
     if (!item_id || !component_id || !quantity || !uom) {
       return false;
     }
@@ -67,7 +64,6 @@ export const BomFormModal = ({
     return true;
   };
 
-  // Don't show the modal if it's not open
   if (!isOpen) return null;
 
 
@@ -159,14 +155,4 @@ export const BomFormModal = ({
   );
 };
 
-// Example of validation for BoM entry
-const validatebomEntry = (component) => {
-  return (
-    !component.item_id ||
-    !component.component_id ||
-    !component.quantity ||
-    isNaN(Number(component.quantity)) ||
-    Number(component.quantity) <= 0 ||
-    (component.uom === "Nos" && !Number.isInteger(Number(component.quantity)))
-  );
-};
+

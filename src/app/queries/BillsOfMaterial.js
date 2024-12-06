@@ -4,20 +4,12 @@ import {
   updateBoM,
   deleteBoM,
   getBoM,
-  getItems,
 } from "../services/BillsOfMaterial";
 
-// Fetch BoM Data
 export const useFetchBoM = () => {
   return useQuery("bom", getBoM, {});
 };
 
-// Fetch Items Data
-export const useFetchItems = () => {
-  return useQuery("items", getItems, {});
-};
-
-// Create BoM Mutation
 export const useCreateBoMMutation = () => {
   const queryClient = useQueryClient();
   return useMutation(createBoM, {
@@ -30,7 +22,6 @@ export const useCreateBoMMutation = () => {
   });
 };
 
-// Update BoM Mutation
 export const useUpdateBoMMutation = () => {
   const queryClient = useQueryClient();
   return useMutation(updateBoM, {
@@ -43,7 +34,6 @@ export const useUpdateBoMMutation = () => {
   });
 };
 
-// Delete BoM Mutation
 export const useDeleteBoMMutation = () => {
   const queryClient = useQueryClient();
   return useMutation(deleteBoM, {

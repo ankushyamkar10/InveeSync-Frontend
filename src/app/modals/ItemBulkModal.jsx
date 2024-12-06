@@ -30,7 +30,7 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
 
   const [csvData, setCsvData] = useState([]);
 
-  // Determine which set of files/data to use based on the 'type'
+
   const { files, csvInitialData, isLoading, error } = {
     files: itemsFiles,
     csvInitialData: itemsCsvData,
@@ -40,7 +40,7 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
 
   useEffect(() => {
     if (isOpen && csvInitialData && csvInitialData.length > 0) {
-      // Perform validation on the entire dataset
+
       const validatedData = validateFn(
         csvInitialData.map((item) => item.row),
         false,
@@ -48,7 +48,6 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
         items
       );
 
-      // Update the CSV data with validation results
       setCsvData(
         validatedData.map((validationResult, index) => ({
           ...csvInitialData[index],
@@ -57,7 +56,6 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
         }))
       );
     } else if (isOpen) {
-      // Reset data when modal opens with no initial data
       setCsvData([]);
     }
   }, [isOpen, csvInitialData, itemsTypes, items]);
@@ -101,22 +99,21 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
 
   const handleEditCell = (rowIndex, cellIndex, value) => {
     setCsvData((prevData) => {
-      // Create a deep copy of the data to avoid mutating the original state
+
       const newData = prevData.map((row) => ({
         ...row,
-        row: [...row.row], // Ensure the nested array is also copied
+        row: [...row.row], 
       }));
 
-      // Update the specific cell
       newData[rowIndex].row[cellIndex] = value;
 
-      return newData; // Return the updated array
+      return newData;
     });
   };
 
   const validateEditedRow = (rowIndex) => {
     const rowData = csvData[rowIndex];
-    const validationResult = validateRow(rowData.row); // Implement your validation logic
+    const validationResult = validateRow(rowData.row);
 
     if (validationResult) {
       setCsvData((prevData) => {
@@ -127,7 +124,7 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
           reason: validationResult[0].reason,
         };
 
-        // Load the existing full object from local storage
+
         dispatch(editItemsCsvCell(newData));
         return newData;
       });
@@ -135,7 +132,7 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
   };
 
   const validateRow = (row) => {
-    // Add your validation logic here
+
     const validatedData = validateFn([row], false, itemsTypes, items);
     return validatedData;
   };
@@ -144,11 +141,11 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
   const schemaFields = Object.keys(schema);
 
   const handleUpload = () => {
-    // Separate valid and invalid rows
+
     const validRows = csvData.filter((rowData) => rowData.isValid);
     const invalidRows = csvData.filter((rowData) => !rowData.isValid);
 
-    // If there are invalid rows, show an alert and stop the upload
+
     if (invalidRows.length > 0) {
       alert("Some rows are invalid. Please check the data.");
       return;
@@ -157,11 +154,11 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
     const schema = itemSchema;
     const schemaFields = Object.keys(schema);
 
-    // Iterate over valid rows and process data
+
     validRows.forEach((rowData) => {
       const dataObject = {};
 
-      // Map row data to the schema fields
+
       schemaFields.forEach((field, index) => {
         if (index < schemaFields.length - 2) {
           dataObject[field] = rowData.row[index];
@@ -290,7 +287,7 @@ const ItemBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
           </form>
           <h3 className="font-bold text-lg mb-4 text-gray-900 dark:text-gray-200 ">Bulk Data Upload</h3>
 
-          {/* Main content container */}
+
           <div className="flex-1 flex flex-col relative">
             {renderUploadSection()}
 

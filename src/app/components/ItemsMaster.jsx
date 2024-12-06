@@ -89,19 +89,19 @@ const ItemsMaster = () => {
   const [itemsTypes, setItemsTypes] = useState({});
 
   useEffect(() => {
-    // Check if itemsData is available and is an array
+
     if (data && Array.isArray(data)) {
-      // Create a new object to avoid mutating the existing state
+
       const newItemsTypes = {};
 
-      // Loop through the data and transform it into the desired object format
+
       data.forEach((item) => {
         if (item.id && item.type) {
           newItemsTypes[item.id] = item.type;
         }
       });
 
-      // Update the state with the transformed object
+
       setItemsTypes(newItemsTypes);
     }
   }, [data]);

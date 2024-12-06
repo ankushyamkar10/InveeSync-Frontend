@@ -13,15 +13,15 @@ export const parseItemFile = createAsyncThunk(
   'fileUploadItem/parseFile',
   async ({ file, validateFn, itemsTypes, items, skipHeader = false }, { rejectWithValue }) => {
     try {
-      // Read the file
+
       const arrayBuffer = await file.arrayBuffer();
       const workbook = XLSX.read(arrayBuffer, { type: 'buffer' });
       
-      // Get the first sheet
+
       const sheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[sheetName];
       
-      // Convert to JSON, optionally skipping header
+
       const jsonData = XLSX.utils.sheet_to_json(worksheet, { 
         header: skipHeader ? 1 : 0 
       });
@@ -46,8 +46,8 @@ const fileUploadItemSlice = createSlice({
   initialState: loadFromLocalStorage(FILE_UPLOAD_KEY_ITEMS, initialState),
   reducers: {
     setItemFiles: (state, action) => {
-      state.files = action.payload;
-      saveToLocalStorage(FILE_UPLOAD_KEY_ITEMS, state);
+      // state.files = action.payload;
+      // saveToLocalStorage(FILE_UPLOAD_KEY_ITEMS, state);
     },
     clearItemData: (state) => {
       state.files = [];
@@ -85,4 +85,3 @@ const fileUploadItemSlice = createSlice({
 export const { setItemFiles, clearItemData, editItemsCsvCell } = fileUploadItemSlice.actions;
 export default fileUploadItemSlice.reducer;
 
-// Example usage in a component

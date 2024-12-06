@@ -15,27 +15,20 @@ export const parseBomFile = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
-      // Read the file
+
       const arrayBuffer = await file.arrayBuffer();
       const workbook = XLSX.read(arrayBuffer, { type: "buffer" });
 
-      // Get the first sheet
+
       const sheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[sheetName];
 
-      // Convert to JSON, optionally skipping header
+
       const jsonData = XLSX.utils.sheet_to_json(worksheet, {
         header: skipHeader ? 1 : 0,
       });
       const validatedData = validateFn(jsonData, true, itemsTypes, boms);
-      // Transform data to match your validation requirements
-      // const processedData = jsonData.map((row, index) => ({
-      //   row: Object.values(row),
-      //   rowNumber: index + 2, // +2 because Excel rows start at 1 and we might skip header
-      //   isValid: false, // You'll set this after validation
-      //   reason: '' // Placeholder for validation reason
-      // }));
-
+      
       return validatedData;
     } catch (error) {
       return rejectWithValue(error.toString());

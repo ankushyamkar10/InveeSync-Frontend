@@ -2,7 +2,6 @@ import React from 'react';
 import { FiAlertCircle } from 'react-icons/fi';
 
 const ErrorCard = ({ error }) => {
-  // Ensure error is an object or has a meaningful message
   const errorMessage = 
     typeof error === 'string' 
       ? error 

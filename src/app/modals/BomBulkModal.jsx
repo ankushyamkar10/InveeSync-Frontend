@@ -31,7 +31,7 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
 
   const [csvData, setCsvData] = useState([]);
 
-  // Determine which set of files/data to use based on the 'type'
+
   const { files, csvInitialData, isLoading, error } = {
     files: bomFiles,
     csvInitialData: bomCsvData,
@@ -41,7 +41,7 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
 
   useEffect(() => {
     if (isOpen && csvInitialData && csvInitialData.length > 0) {
-      // Perform validation on the entire dataset
+
       const validatedData = validateFn(
         csvInitialData.map(item => item.row), 
         false, 
@@ -49,14 +49,14 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
         boms
       );
 
-      // Update the CSV data with validation results
+
       setCsvData(validatedData.map((validationResult, index) => ({
         ...csvInitialData[index],
         isValid: validationResult.isValid,
         reason: validationResult.reason
       })));
     } else if (isOpen) {
-      // Reset data when modal opens with no initial data
+
       setCsvData([]);
     }
   }, [isOpen, csvInitialData, itemsTypes, items]);
@@ -72,7 +72,7 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
   const handleFileSelection = useCallback(
     (selectedFiles) => {
       const fileArray = Array.from(selectedFiles);
-      // dispatch(setFiles(fileArray));
+
       const parseFile =  parseBomFile 
       if (fileArray.length > 0) {
         dispatch(
@@ -103,23 +103,23 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
   const handleEditCell = (rowIndex, cellIndex, value) => {
 
     setCsvData((prevData) => {
-      // Create a deep copy of the data to avoid mutating the original state
+
       const newData = prevData.map((row) => ({
         ...row,
-        row: [...row.row], // Ensure the nested array is also copied
+        row: [...row.row], 
       }));
 
-      // Update the specific cell
+
       newData[rowIndex].row[cellIndex] = value;
 
-      return newData; // Return the updated array
+      return newData; 
     });
   };
 
 
   const validateEditedRow = (rowIndex) => {
     const rowData = csvData[rowIndex];
-    const validationResult = validateRow(rowData.row); // Implement your validation logic
+    const validationResult = validateRow(rowData.row); 
 
     if (validationResult) {
       setCsvData((prevData) => {
@@ -130,17 +130,7 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
           reason: validationResult[0].reason,
         };
         
-        // Load the existing full object from local storage
-        // const existingStoredData = loadFromLocalStorage(FILE_UPLOAD_KEY_BOM) || {};
-        
-        // // Update only the csvData part of the object
-        // const updatedStoredData = {
-        //   ...existingStoredData,
-        //   csvData: newData
-        // };
-        
-        // Save the entire updated object back to local storage
-        // saveToLocalStorage(FILE_UPLOAD_KEY_BOM, updatedStoredData);
+       
         dispatch(editBomCsvCell(newData))
         
         return newData;
@@ -148,7 +138,7 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
     }
   };
   const validateRow = (row) => {
-    // Add your validation logic here
+
     const validatedData = validateFn([row], false, itemsTypes, boms);
     return validatedData;
   };
@@ -157,11 +147,11 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
   const schemaFields = Object.keys(schema);
 
   const handleUpload = () => {
-    // Separate valid and invalid rows
+
     const validRows = csvData.filter((rowData) => rowData.isValid);
     const invalidRows = csvData.filter((rowData) => !rowData.isValid);
 
-    // If there are invalid rows, show an alert and stop the upload
+
     if (invalidRows.length > 0) {
       alert("Some rows are invalid. Please check the data.");
       return;
@@ -170,11 +160,11 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
     const schema =bomSchema
     const schemaFields = Object.keys(schema);
 
-    // Iterate over valid rows and process data
+
     validRows.forEach((rowData) => {
       const dataObject = {};
 
-      // Map row data to the schema fields
+
       schemaFields.forEach((field, index) => {
           dataObject[field] = rowData.row[index];
         
@@ -281,7 +271,6 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
 };
 
 
-  // Discard upload and reset state
   const handleDiscardUpload = () => {
     resetUpload();
   };
@@ -302,7 +291,6 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
           </form>
           <h3 className="font-bold text-lg mb-4">Bulk Data Upload</h3>
 
-          {/* Main content container */}
           <div className="flex-1 flex flex-col relative">
             {renderUploadSection()}
 
@@ -328,7 +316,6 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
          <div className="modal-box bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300 p-6 min-w-[90vw] min-h-[90vh]  flex flex-col relative  border border-gray-300">
            <h3 className="font-bold text-lg mb-4">Preview Complete</h3>
 
-           {/* Main Preview Table */}
            <div className="relative overflow-x-auto shadow-md sm:rounded-lg mb-6 min-h-[35vh]">
                 <table className="w-full text-sm text-left rtl:text-right text-gray-400 border border-gray-200 ">
                   <thead className="text-xs  uppercase bg-gray-300 dark:bg-gray-700 text-gray-400">
@@ -371,7 +358,6 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
                 </table>
               </div>
 
-              {/* Invalid Entries Section */}
               <h3 className="font-bold text-md mb-2 text-gray-900 dark:text-gray-300">
                 Invalid Entries
               </h3>
@@ -437,7 +423,6 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
               </div>
 
               <div className="absolute bottom-20 md:bottom-6 -left-4 md:left-0 flex justify-between items-center w-full px-6">
-                {/* Discard Button */}
                 <button
                   onClick={handleDiscardUpload}
                   className="py-2 px-4 rounded-md bg-gray-400 text-white font-semibold"
@@ -446,7 +431,6 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
                 </button>
               </div>
 
-              {/* Buttons for Error Report and Upload */}
               <div className="absolute bottom-6 right-6 flex gap-4">
                 <button
                   onClick={handleDownloadErrorReport}

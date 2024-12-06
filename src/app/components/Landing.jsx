@@ -12,7 +12,7 @@ import {
 } from "react-icons/fi";
 import { useFetchBoM } from "../queries/BillsOfMaterial";
 import { useFetchItems } from "../queries/ItemsMaster";
-import { usePendingSetup } from "../hooks/usePendingJobs";
+import { usePendingJobs } from "../hooks/usePendingJobs";
 
 const GlassCard = ({ title, count, icon: Icon, isLoading, colorClass, gradientClass }) => (
   <div className={`relative overflow-hidden rounded-2xl shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl ${gradientClass}`}>
@@ -43,11 +43,11 @@ const GlassCard = ({ title, count, icon: Icon, isLoading, colorClass, gradientCl
 const Landing = () => {
   const [activeTab, setActiveTab] = useState("Items Master");
 
-  // Fetch items and BOM data
+
   const { data: itemsData, isLoading: isItemsLoading } = useFetchItems();
   const { data: bomData, isLoading: isBomLoading } = useFetchBoM();
 
-  // Count items using a for loop
+
   const itemCount = useMemo(() => {
     if (!itemsData) return 0;
 
@@ -60,7 +60,7 @@ const Landing = () => {
     return count;
   }, [itemsData]);
 
-  // Count BOMs using a for loop
+
   const bomCount = useMemo(() => {
     if (!bomData) return 0;
     return bomData.length;
@@ -102,7 +102,7 @@ const Landing = () => {
           
           <GlassCard 
             title="Pending Entries"
-            count={!isBomLoading && !isItemsLoading ? usePendingSetup(itemsData, bomData)?.length : 0}
+            count={!isBomLoading && !isItemsLoading ? usePendingJobs(itemsData, bomData)?.length : 0}
             icon={FiAlertCircle}
             isLoading={isBomLoading || isItemsLoading}
             colorClass="text-yellow-600"

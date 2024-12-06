@@ -11,6 +11,7 @@ The application is deployed and accessible at: [https://invee-sync-frontend.verc
 - Add and manage items and processes.
 - Modular components for scalability.
 - Error handling and modals for enhanced user experience.
+- Check the dark/light mode too, by changing the systems theme
 
 ## Libraries Used
 

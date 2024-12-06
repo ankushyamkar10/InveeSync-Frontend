@@ -37,17 +37,17 @@ export const validateSingleBoM = (row, uniqueCombinations, uniqueIds, itemsTypes
   const [id, item_id, component_id, quantity] = row;
   const errors = [];
 
-  // Unique ID check
+
   if (uniqueIds.has(id)) {
     errors.push("Duplicate ID found");
   }
 
-  // Check item_id and component_id
+
   if (!item_id || !component_id) {
     errors.push("Both Item ID and Component ID are required");
   }
 
-  // Check quantity
+
   const quantityVal = parseFloat(quantity);
   if (
     isNaN(quantityVal) ||
@@ -59,18 +59,18 @@ export const validateSingleBoM = (row, uniqueCombinations, uniqueIds, itemsTypes
     );
   }
 
-  // Check unique combination
+
   const combinationKey = `${item_id}-${component_id}`;
   if (uniqueCombinations.has(combinationKey)) {
     errors.push("Duplicate combination of item_id and component_id");
   }
 
-  // Check item existence
+
   if (!itemIds.includes(item_id) || !itemIds.includes(component_id)) {
     errors.push("BoM cannot be created for items not created yet");
   }
 
-  // Type-specific constraints
+
   if (itemsTypes[item_id] === ITEM_TYPES.SELL) {
     if (itemsTypes[component_id] === ITEM_TYPES.SELL) {
       errors.push("Sell item cannot be a component in BoM");

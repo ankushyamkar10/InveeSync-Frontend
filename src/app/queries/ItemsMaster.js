@@ -15,7 +15,7 @@ export const useCreateItemMutation = () => {
 
   return useMutation(createItem, {
     onSuccess: () => {
-      queryClient.invalidateQueries("items"); // Invalidate to refetch items after mutation
+      queryClient.invalidateQueries("items"); 
     },
   });
 };
@@ -25,7 +25,7 @@ export const useUpdateItemMutation = () => {
 
   return useMutation(updateItem, {
     onSuccess: () => {
-      queryClient.invalidateQueries("items"); // Invalidate to refetch items after mutation
+      queryClient.invalidateQueries("items"); 
     },
   });
 };
@@ -35,7 +35,7 @@ export const useDeleteItemMutation = () => {
 
   return useMutation(deleteItem, {
     onSuccess: () => {
-      queryClient.invalidateQueries("items"); // Invalidate to refetch items after mutation
+      queryClient.invalidateQueries("items"); 
     },
   });
 };

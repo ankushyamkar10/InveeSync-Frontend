@@ -4,20 +4,18 @@ import { FiAlertTriangle, FiChevronRight, FiTool } from "react-icons/fi";
 import BomBulkModal from "../modals/BomBulkModal";
 import { useFetchItems } from "../queries/ItemsMaster";
 import { useFetchBoM } from "../queries/BillsOfMaterial";
-import { usePendingSetup } from "../hooks/usePendingJobs";
+import { usePendingJobs } from "../hooks/usePendingJobs";
 import Loading from "./Loading";
 
-const PendingSetup = () => {
+const PendingJobs = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState(null);
   const [selectedRowIndex, setSelectedRowIndex] = useState(null);
-
-  // Fetch items and BOMs
   const { data: items = [], isLoading: itemsLoading } = useFetchItems();
   const { data: boms = [], isLoading: bomsLoading } = useFetchBoM();
 
-  // Existing pendingItems logic remains the same...
-  const pendingItems = usePendingSetup(items, boms);
+
+  const pendingItems = usePendingJobs(items, boms);
 
   const openModal = (type, rowIndex) => {
     setModalType(type);
@@ -119,4 +117,4 @@ const PendingSetup = () => {
   );
 };
 
-export default PendingSetup;
+export default PendingJobs;

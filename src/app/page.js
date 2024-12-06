@@ -1,5 +1,5 @@
 "use client";
-import PendingSetup from "./components/PendingJobs";
+import PendingJobs from "./components/PendingJobs";
 import Landing from "./components/Landing";
 import { FiSettings, FiTool } from "react-icons/fi";
 import { MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
@@ -60,7 +60,7 @@ export default function Home() {
                 : "-translate-y-96  md:translate-y-0"
             }`}
         >
-          <PendingSetup />
+          <PendingJobs />
         </div>
 
         {/* Content Section */}

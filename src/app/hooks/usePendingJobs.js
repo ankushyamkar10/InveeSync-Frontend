@@ -1,8 +1,8 @@
 'use client'
-export const usePendingSetup = (items = [], boms = []) => {
+export const usePendingJobs = (items = [], boms = []) => {
   const pendingJobs = [];
 
-  // Sell Items Constraint
+
   const sellItems = items.filter((entry) => entry.type === "sell");
   if (sellItems.length === 0 || !sellItems.some((entry) => entry.id)) {
     pendingJobs.push({
@@ -14,7 +14,7 @@ export const usePendingSetup = (items = [], boms = []) => {
     });
   }
 
-  // Purchase Items Constraint
+
   const purchaseItems = items.filter((entry) => entry.type === "purchase");
   if (
     purchaseItems.length === 0 ||
@@ -29,7 +29,7 @@ export const usePendingSetup = (items = [], boms = []) => {
     });
   }
 
-  // Component Items Constraint
+
   boms.forEach((entry) => {
     if (!entry.item_id || !entry.component_id) {
       pendingJobs.push({

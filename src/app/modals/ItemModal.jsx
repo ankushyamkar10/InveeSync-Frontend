@@ -26,7 +26,7 @@ const initialState = {
 export const ItemFormModal = ({ isOpen, onClose, onSave, item, isEdit }) => {
   const [formData, setFormData] = useState(initialState);
   const [errors, setErrors] = useState({});
-  const [isFormValid, setIsFormValid] = useState(false); // New state to control form validation
+  const [isFormValid, setIsFormValid] = useState(false); 
 
   useEffect(() => {
     if (isEdit && item) {
@@ -48,7 +48,6 @@ export const ItemFormModal = ({ isOpen, onClose, onSave, item, isEdit }) => {
     }));
   };
 
-  // Validate the form and update the isFormValid state
   const validateForm = () => {
     const newErrors = {};
     const {
@@ -77,12 +76,12 @@ export const ItemFormModal = ({ isOpen, onClose, onSave, item, isEdit }) => {
     }
 
     setErrors(newErrors);
-    setIsFormValid(Object.keys(newErrors).length === 0); // Set form validity based on errors
+    setIsFormValid(Object.keys(newErrors).length === 0); 
   };
 
   useEffect(() => {
-    validateForm(); // Run validation whenever formData changes
-  }, [formData]); // Trigger validation only when formData changes
+    validateForm();
+  }, [formData]); 
 
   if (!isOpen) return null;
 
