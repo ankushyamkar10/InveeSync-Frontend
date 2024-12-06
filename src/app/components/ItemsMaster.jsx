@@ -188,7 +188,7 @@ const ItemsMaster = () => {
   return (
     <div className="max-h-screen w-full flex flex-col overflow-auto">
       <div className="container mx-auto px-4 py-8 md:flex-1 bg-inherit">
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6">
+        <div className="bg-white dark:bg-gray-800 p-6">
           {/* Header Section */}
           <div className="mb-8">
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
@@ -360,7 +360,7 @@ const ItemsMaster = () => {
                         <div className="flex flex-col items-center justify-center space-y-4">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-24 w-24 text-gray-600  dark:text-gray-400"
+                            className="h-24 w-24 text-gray-600  dark:text-gray-300"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
