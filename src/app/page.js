@@ -12,7 +12,7 @@ export default function Home() {
       {/* Header */}
       <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-md h-[60px] border-b border-gray-200 dark:border-gray-700 w-full sticky top-0 z-50">
         <div className="container mx-auto px-4 h-full flex items-center justify-between">
-          <h1 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+          <h1 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white flex items-center gap-3 w-full justify-center">
             <FiSettings className="text-blue-600 w-6 h-6" />
             <span className="tracking-tight">Masterlist Management</span>
           </h1>
