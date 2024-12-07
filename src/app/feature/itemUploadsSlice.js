@@ -7,7 +7,7 @@ import {
   removeFromLocalStorage 
 } from '../utils/localStorage';
 
-export const FILE_UPLOAD_KEY_ITEMS = 'fileUploadItemState';
+export const FILE_UPLOAD_KEY_ITEMS = 'fileUploadItemState_inveesync';
 
 export const parseItemFile = createAsyncThunk(
   'fileUploadItem/parseFile',

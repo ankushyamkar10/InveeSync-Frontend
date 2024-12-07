@@ -6,7 +6,7 @@ import {
   removeFromLocalStorage,
 } from "../utils/localStorage";
 
-export const FILE_UPLOAD_KEY_BOM = "fileUploadBomState";
+export const FILE_UPLOAD_KEY_BOM = "fileUploadBomState_inveesync";
 
 export const parseBomFile = createAsyncThunk(
   "fileUploadBom/parseBomFile",
