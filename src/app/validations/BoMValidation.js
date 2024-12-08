@@ -48,15 +48,18 @@ export const validateSingleBoM = (row, uniqueCombinations, uniqueIds, itemsTypes
   }
 
 
-  const quantityVal = parseFloat(quantity);
-  if (
-    isNaN(quantityVal) ||
-    quantityVal < BOM_CONSTANTS.MIN_QUANTITY ||
-    quantityVal > BOM_CONSTANTS.MAX_QUANTITY
-  ) {
-    errors.push(
-      `Quantity must be a number between ${BOM_CONSTANTS.MIN_QUANTITY} and ${BOM_CONSTANTS.MAX_QUANTITY}`
-    );
+  if (isNaN(quantity) || quantity === '' || quantity === null) {
+    errors.push("Quantity must be a valid number");
+  } else {
+    const quantityVal = parseFloat(quantity);
+    if (
+      quantityVal < BOM_CONSTANTS.MIN_QUANTITY ||
+      quantityVal > BOM_CONSTANTS.MAX_QUANTITY
+    ) {
+      errors.push(
+        `Quantity must be a number between ${BOM_CONSTANTS.MIN_QUANTITY} and ${BOM_CONSTANTS.MAX_QUANTITY}`
+      );
+    }
   }
 
 
