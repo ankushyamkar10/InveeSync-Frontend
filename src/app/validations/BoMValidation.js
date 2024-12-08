@@ -48,11 +48,11 @@ export const validateSingleBoM = (row, uniqueCombinations, uniqueIds, itemsTypes
   }
 
 
-  if (typeof quantity !== 'number') {
+  if (isNaN(quantity) || quantity === '' || quantity === null) {
     errors.push("Quantity must be a valid number");
   } else {
     const quantityVal = parseFloat(quantity);
-    if ( isNaN(quantity) ||
+    if (
       quantityVal < BOM_CONSTANTS.MIN_QUANTITY ||
       quantityVal > BOM_CONSTANTS.MAX_QUANTITY
     ) {
