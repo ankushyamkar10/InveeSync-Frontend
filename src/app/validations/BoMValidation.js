@@ -27,6 +27,8 @@ export const validateBoMs = (data, skipHeader = true, itemsTypes, fetchedBoms) =
 export const validateSingleBoM = (row, uniqueCombinations, uniqueIds, itemsTypes) => {
   const itemIds = Object.keys(itemsTypes);
 
+  console.log(itemIds)
+
   if (!Array.isArray(row) || row.length < 3) {
     return {
       isValid: false,

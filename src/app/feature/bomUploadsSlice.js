@@ -17,7 +17,7 @@ export const parseBomFile = createAsyncThunk(
     try {
 
       const arrayBuffer = await file.arrayBuffer();
-      const workbook = XLSX.read(arrayBuffer, { type: "buffer" });
+      const workbook = XLSX.read(arrayBuffer, { type: "buffer", raw:true });
 
 
       const sheetName = workbook.SheetNames[0];
@@ -25,8 +25,30 @@ export const parseBomFile = createAsyncThunk(
 
 
       const jsonData = XLSX.utils.sheet_to_json(worksheet, {
+        raw:true,
         header: skipHeader ? 1 : 0,
       });
+      
+      const processedData = jsonData.map((row) => {
+        return Object.values(
+          Object.fromEntries(
+            Object.entries(row).map(([key, value]) => {
+              if (typeof value === "string" && !isNaN(value)) {
+                // Convert numeric strings to numbers
+                return [key, parseFloat(value)];
+              } else if (value === "TRUE" || value === "FALSE") {
+                // Convert string booleans to actual booleans
+                return [key, value === "TRUE"];
+              }
+              return [key, value];
+            })
+          )
+        );
+      });
+      
+
+      console.log(processedData,jsonData)
+
       const validatedData = validateFn(jsonData, true, itemsTypes, boms);
       
       return validatedData;

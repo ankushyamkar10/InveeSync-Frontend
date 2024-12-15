@@ -23,7 +23,8 @@ export const parseItemFile = createAsyncThunk(
       
 
       const jsonData = XLSX.utils.sheet_to_json(worksheet, { 
-        header: skipHeader ? 1 : 0 
+        header: skipHeader ? 1 : 0,
+        raw:true
       });
       const validatedData = validateFn(jsonData, true, itemsTypes, items);
 

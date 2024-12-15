@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { FaUpload } from "react-icons/fa";
 import * as XLSX from "xlsx";
@@ -56,7 +57,6 @@ const BomBulkModal = ({ type, isOpen, onClose, itemsTypes }) => {
         reason: validationResult.reason
       })));
     } else if (isOpen) {
-
       setCsvData([]);
     }
   }, [isOpen, csvInitialData, itemsTypes, items]);
